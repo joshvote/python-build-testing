@@ -1,18 +1,35 @@
-name: Python CI
+name: Python CI PR
 on:
   push:
     branches: [ main ]
   pull_request:
-    branches: [ main ]
-  release:
-    types: [created]    
+    branches: [ main ]  
   workflow_dispatch:
 
 jobs:
-  validation:
-    uses: microsoft/action-python/.github/workflows/validation.yml@0.2.0
-    with:
-      bandit: true
-      flake8: true
-      pytest: true
+  linting:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Bandit
+        uses: dciborow/pyaction@0.0.30
+        with:          
+          bandit: true
+
+      - name: Pylint
+        uses: dciborow/pyaction@0.0.30
+        with:
+          pylint: true
+          
+      - name: Flake8
+        uses: dciborow/pyaction@0.0.30
+        with:          
+          flake8: true
+
+  testing:
+    runs-on: ubuntu-latest
+    steps:    
+      - name: Pytest
+        uses: dciborow/pyaction@0.0.30
+        with:          
+          testing: true
       
