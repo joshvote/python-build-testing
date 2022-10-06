@@ -13,3 +13,10 @@ def makeLonger(s: Optional[str]) -> str:
         return "longer"
 
     return s + "longer"
+
+
+def makeEvenLonger(s: Optional[str]) -> str:
+    if s is None or len(s) == 0:
+        return "evenlonger"
+
+    return s + "evenlonger"

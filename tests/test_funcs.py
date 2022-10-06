@@ -1,5 +1,5 @@
 from src.consts import LONG_STRING, MEDIUM_STRING
-from src.funcs import makeLonger, makeShorter
+from src.funcs import makeEvenLonger, makeLonger, makeShorter
 
 
 def test_makeShorter():
@@ -16,3 +16,8 @@ def test_makeLonger():
 
     assert len(makeLonger(LONG_STRING)) > len(LONG_STRING)
     assert len(makeLonger(MEDIUM_STRING)) > len(MEDIUM_STRING)
+
+
+def test_makeEvenLonger():
+    assert len(makeEvenLonger(LONG_STRING)) > len(makeLonger(LONG_STRING))
+    assert len(makeEvenLonger(MEDIUM_STRING)) > len(makeLonger(MEDIUM_STRING))
