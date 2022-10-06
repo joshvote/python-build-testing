@@ -31,5 +31,5 @@ jobs:
       - name: Pytest
         uses: dciborow/pyaction@0.0.30
         with:          
-          testing: true
+          pytest: true
       
