@@ -1,4 +1,4 @@
-name: Python CI PR
+name: Linting and Testing
 on:
   push:
     branches: [ main ]
