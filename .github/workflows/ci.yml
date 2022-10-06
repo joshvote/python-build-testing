@@ -15,12 +15,13 @@ jobs:
         
       - name: Setup Python
         uses: actions/setup-python@v4.2.0
+        with:
+          python-version: '3.9'
     
-      - name: Bandit
+      - name: Lint and Test
         uses: dciborow/pyaction@0.0.30
         with:          
           bandit: true
-          pylint: true
           flake8: true
           pytest: true
 
