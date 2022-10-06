@@ -7,29 +7,20 @@ on:
   workflow_dispatch:
 
 jobs:
-  linting:
+  validate:
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout
+        uses: actions/checkout@v3.1.0
+        
+      - name: Setup Python
+        uses: actions/setup-python@v4.2.0
+    
       - name: Bandit
         uses: dciborow/pyaction@0.0.30
         with:          
           bandit: true
-
-      - name: Pylint
-        uses: dciborow/pyaction@0.0.30
-        with:
           pylint: true
-          
-      - name: Flake8
-        uses: dciborow/pyaction@0.0.30
-        with:          
           flake8: true
-
-  testing:
-    runs-on: ubuntu-latest
-    steps:    
-      - name: Pytest
-        uses: dciborow/pyaction@0.0.30
-        with:          
           pytest: true
-      
+
