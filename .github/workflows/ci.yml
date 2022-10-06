@@ -7,7 +7,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  validate:
+  lint:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -18,9 +18,25 @@ jobs:
         with:
           python-version: '3.9'
     
-      - name: Lint and Test
+      - name: Lint
         uses: dciborow/pyaction@0.0.30
         with:          
           flake8: true
+          bandit: true
+          
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3.1.0
+        
+      - name: Setup Python
+        uses: actions/setup-python@v4.2.0
+        with:
+          python-version: '3.9'
+    
+      - name: Test
+        uses: dciborow/pyaction@0.0.30
+        with:          
           pytest: true
 
