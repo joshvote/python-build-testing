@@ -21,3 +21,7 @@ def test_makeLonger():
 def test_makeEvenLonger():
     assert len(makeEvenLonger(LONG_STRING)) > len(makeLonger(LONG_STRING))
     assert len(makeEvenLonger(MEDIUM_STRING)) > len(makeLonger(MEDIUM_STRING))
+
+
+def test_WillFail():
+    assert 1 == 0
