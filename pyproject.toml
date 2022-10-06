@@ -9,22 +9,10 @@ max-complexity = 10
 
 [tool.isort]
 force_grid_wrap = 0
-include_trailing_comma = True
+include_trailing_comma = true
 line_length = 88
 multi_line_output = 3
-use_parentheses = True
-
-[tool.mypy]
-check_untyped_defs = True
-disallow_incomplete_defs = True
-disallow_untyped_calls = True
-disallow_untyped_decorators = True
-disallow_untyped_defs = True
-mypy_path = src
-namespace_packages = True
-warn_redundant_casts = True
-warn_unused_ignores = True
-
+use_parentheses = true
 
 [build-system]
 requires = ["setuptools >= 40.9.0", "wheel"]
