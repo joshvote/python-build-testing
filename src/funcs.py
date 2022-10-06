@@ -21,6 +21,7 @@ def makeEvenLonger(s: Optional[str]) -> str:
 
     return s + "evenlonger"
 
+
 def addOne(s: Optional[int]) -> int:
     if s is None:
         return 0
