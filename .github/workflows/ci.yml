@@ -1,4 +1,4 @@
-name: Python CI PR
+name: Linting and Testing
 on:
   push:
     branches: [ main ]
@@ -35,8 +35,7 @@ jobs:
         with:
           python-version: '3.9'
     
-      - name: Test
+      - name: Run Tests
         uses: dciborow/pyaction@0.0.30
         with:          
           pytest: true
-
