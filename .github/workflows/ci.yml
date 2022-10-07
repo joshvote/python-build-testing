@@ -40,14 +40,15 @@ jobs:
         with:
           python-version: '3.9'
         
-      - name: py3-bandit
-        uses: libertyy/py3-bandit-check@v2
-
-      - name: Save Bandit txt Report
-        if: ${{ always() }}
-        uses: actions/upload-artifact@v2
+      - name: Run bandit with reviewdog
+        uses: dciborow/action-bandit@v1
         with:
-          path: ${{ RUNNER.temp }}/_github_home/bandit_report.out
+          github_token: ${{ secrets.github_token }}
+          # Change reviewdog reporter if you need [github-pr-check,github-check,github-pr-review].
+          reporter: github-pr-review
+          # Change reporter level if you need.
+          # GitHub Status Check won't become failure with warning.
+          level: warning
   
   pytest_py39:
     runs-on: ubuntu-latest
