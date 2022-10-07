@@ -41,7 +41,7 @@ jobs:
           python-version: '3.9'
         
       - name: Run bandit with reviewdog
-        uses: dciborow/action-bandit@v1
+        uses: dciborow/action-bandit@0.0.2
         with:
           github_token: ${{ secrets.github_token }}
           # Change reviewdog reporter if you need [github-pr-check,github-check,github-pr-review].
