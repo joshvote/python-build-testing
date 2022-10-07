@@ -44,7 +44,7 @@ jobs:
         uses: tj-actions/bandit@v5.1
         with:
           targets: "."
-          options: "-r"
+          options: "-r -x tests/"
   
   pytest_py39:
     runs-on: ubuntu-latest
