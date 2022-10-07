@@ -40,15 +40,11 @@ jobs:
         with:
           python-version: '3.9'
         
-      - name: Run bandit with reviewdog
-        uses: dciborow/action-bandit@0.0.2
+      - name: Run bandit
+        uses: tj-actions/bandit@v5.1
         with:
-          github_token: ${{ secrets.github_token }}
-          # Change reviewdog reporter if you need [github-pr-check,github-check,github-pr-review].
-          reporter: github-pr-review
-          # Change reporter level if you need.
-          # GitHub Status Check won't become failure with warning.
-          level: warning
+          targets: "."
+          options: "-r"
   
   pytest_py39:
     runs-on: ubuntu-latest
