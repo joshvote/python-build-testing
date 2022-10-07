@@ -23,5 +23,5 @@ def test_makeEvenLonger():
     assert len(makeEvenLonger(MEDIUM_STRING)) > len(makeLonger(MEDIUM_STRING))
 
 
-def test_WillFail():
-    assert 1 == 0
+# def test_WillFail():
+#    assert 1 == 0
