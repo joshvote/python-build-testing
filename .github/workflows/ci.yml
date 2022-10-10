@@ -18,6 +18,7 @@ jobs:
         with:
           project_path: src/
           ignore_failure: false
+          repo_token: ${{ secrets.GITHUB_TOKEN }}
           
       - name: Security check report artifacts
         uses: actions/upload-artifact@v1
