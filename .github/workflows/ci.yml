@@ -38,9 +38,6 @@ jobs:
         with:
           python-version: '3.9'
         
-      - name: python-bandit with code annotations
-        uses: ioggstream/bandit-report-artifacts@v0.0.2
-        
       - name: Security check - Bandit
         uses: ioggstream/bandit-report-artifacts@v0.0.2
         with:
