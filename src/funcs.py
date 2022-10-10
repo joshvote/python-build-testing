@@ -1,5 +1,8 @@
 from typing import Optional
 
+# Added a bandit security issue
+DEBUG = True
+
 
 def makeShorter(s: Optional[str]) -> str:
     if s is None or len(s) == 0:
