@@ -7,16 +7,11 @@ on:
   workflow_dispatch:
 
 jobs:
-  bandit_py39:
+  bandit:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v3.1.0
-
-      - name: Setup Python
-        uses: actions/setup-python@v4.2.0
-        with:
-          python-version: '3.9'
         
       - name: Security check - Bandit
         uses: ioggstream/bandit-report-artifacts@v0.0.2
@@ -30,6 +25,26 @@ jobs:
         with:
           name: Security report
           path: output/security_report.txt
+
+  flake8_py39:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3.1.0
+
+      - name: Setup Python
+        uses: actions/setup-python@v4.2.0
+        with:
+          python-version: '3.9'
+    
+      - name: Setup flake8 annotations
+        uses: rbialon/flake8-annotations@v1
+        
+      - name: Lint with flake8
+        if: always()
+        run: |
+          pip install flake8
+          flake8 . --count --statistics
   
   pytest_py39:
     runs-on: ubuntu-latest
