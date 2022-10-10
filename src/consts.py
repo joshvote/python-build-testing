@@ -3,6 +3,7 @@ MEDIUM_STRING = "this is a medium string this is a medium string this is a mediu
 SHORT_STRING = "this is a short string"
 ANOTHER_STRING = "another"
 
+
 # Adding a security flaw for bandit to find
 def securityRisk():
     import subprocess
