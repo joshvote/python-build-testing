@@ -40,11 +40,22 @@ jobs:
         with:
           python-version: '3.9'
         
-      - name: Run bandit
-        uses: tj-actions/bandit@v5.1
+      - name: python-bandit with code annotations
+        uses: ioggstream/bandit-report-artifacts@v0.0.2
+        
+      - name: Security check - Bandit
+        uses: ioggstream/bandit-report-artifacts@v0.0.2
         with:
-          targets: "."
-          options: "-r -x tests/"
+          project_path: .
+          ignore_failure: false
+          
+      - name: Security check report artifacts
+        uses: actions/upload-artifact@v1
+        if: failure()
+        with:
+          name: Security report
+          path: output/security_report.txt
+
   
   pytest_py39:
     runs-on: ubuntu-latest
