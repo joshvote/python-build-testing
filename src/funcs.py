@@ -1,5 +1,8 @@
 from typing import Optional
 
+# Added a bandit security issue
+DEBUG = True
+
 
 def makeShorter(s: Optional[str]) -> str:
     if s is None or len(s) == 0:
@@ -20,3 +23,10 @@ def makeEvenLonger(s: Optional[str]) -> str:
         return "evenlonger"
 
     return s + "evenlonger"
+
+
+def addOne(s: Optional[int]) -> int:
+    if s is None:
+        return 0
+
+    return s + 1
